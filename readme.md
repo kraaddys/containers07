@@ -72,6 +72,9 @@ services:
       - "80:80"
     networks:
       - internal
+    env_file:
+      - mysql.env
+      - app.env
   backend:
     image: php:7.4-fpm
     volumes:
@@ -80,6 +83,7 @@ services:
       - internal
     env_file:
       - mysql.env
+      - app.env
   database:
     image: mysql:8.0
     env_file:
